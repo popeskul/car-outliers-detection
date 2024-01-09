@@ -1,0 +1,47 @@
+definitions:
+  domain.Machine:
+    properties:
+      age:
+        type: string
+      id:
+        type: string
+    type: object
+  handlers.ErrorResponse:
+    properties:
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/check-ages:
+    post:
+      consumes:
+      - application/json
+      description: Detect outliers in machines
+      parameters:
+      - description: CheckAgesRequest
+        in: body
+        name: machines
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/domain.Machine'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Machine'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.ErrorResponse'
+      summary: Detect outliers in machines
+      tags:
+      - Outlier
+swagger: "2.0"

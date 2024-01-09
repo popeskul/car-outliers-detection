@@ -1,0 +1,22 @@
+### Send POST request with json body
+POST http://localhost:8080/api/check-ages
+Content-Type: application/json
+
+[
+  {
+    "id": "machine1",
+    "age": "2 years"
+  },
+  {
+    "id": "machine2",
+    "age": "5 years"
+  },
+  {
+    "id": "machine3",
+    "age": "150 years"
+  },
+  {
+    "id": "machine4",
+    "age": "3 months"
+  }
+]
